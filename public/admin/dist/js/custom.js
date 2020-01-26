@@ -1,19 +1,24 @@
 $(document).ready(()=>{
     $('#course-sub').hide()
+    getDefault()
+
     // $('#CategoryButton').hide();
-    // $('#course-type').on('change',()=>{
-    //    if($('#course-type').val() == 1){
-    //     $('#youtube-url').show();
-    //     $('#course-desc').show();
-    //     $('#course-sub').hide()
-    //     $('#CategoryButton').hide()
-    //    }else if($('#course-type').val() == 2){
-    //     $('#youtube-url').hide();
-    //     $('#course-desc').hide();
-    //     $('#CategoryButton').show()
-    //     $('#course-sub').show()
-    //    }
-    // })
+    $('#course-type').on('change',()=>{
+        // console.log($('#course-type').val())
+       if($('#course-type').val() == 1){
+        $('#ytLinkInput').removeAttr('disabled')
+        $('#youtube-url').show()
+        $('#course_status').show()
+        // $('#course-sub').hide()
+        // $('#CategoryButton').hide()
+       }else if($('#course-type').val() == 2){
+        $('#ytLinkInput').attr('disabled','disabled')
+        $('#youtube-url').hide()
+        $('#course_status').hide()
+        // $('#course-desc').hide();
+        // $('#course-sub').show()
+       }
+    })
     let maxFields = 20,
     wrapper = $('.contentSubCategory'),
     button = $('#CategoryButton'),
@@ -32,24 +37,21 @@ $(document).ready(()=>{
         x--;
     })
 
-    // $('#form_main').on('submit',(event)=>{
-    //     event.preventDefault();
-    //     console.log($(this).serialize())
-    //     $.ajax({
-    //         url:'',
-    //         method:'post',
-    //         data:$(this).serialize(),
-    //         dataType:'json',
-    //         beforeSend: ()=>{
-    //             $('#push_course').attr('disabled','disabled');
-    //         },
-    //         success: (data)=>{
-    //             console.log(data);
-    //             alert('walaaaa');
-    //         }
-    //     });
-    //     // console.log($('#form_main').form())
-    // });
-
+   function getDefault (){
+        // alert($('#course-type').val())
+        if($('#course-type').val() == 1){
+            $('#ytLinkInput').removeAttr('disabled')
+            $('#youtube-url').show()
+            $('#course_status').show()
+            // $('#course-sub').hide()
+            // $('#CategoryButton').hide()
+           }else if($('#course-type').val() == 2){
+            $('#ytLinkInput').attr('disabled','disabled')
+            $('#youtube-url').hide()
+            $('#course_status').hide()
+            // $('#course-desc').hide();
+            // $('#course-sub').show()
+           }
+    }
 
 })

@@ -1,3 +1,7 @@
 .embed-responsive-5by3{
 padding-bottom: 40%;
 }
+
+.carousel-inner > .carousel-item {
+    height: 400px;
+ }

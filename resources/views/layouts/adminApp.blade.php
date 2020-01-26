@@ -29,10 +29,10 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      {{-- <div class="container-fluid">
         <div class="row">
-            <div class="col-5">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2800">
+            <div class="col-12" style="height: 10%">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                           <img src="{{asset('admin/images/1.jpeg')}}" class="d-block w-100">
@@ -43,12 +43,26 @@
                       <div class="carousel-item">
                         <img src="{{asset('admin/images/3.jpeg')}}" class="d-block w-100">
                       </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/4.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/5.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/6.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/7.jpeg')}}" class="d-block w-100">
+                      </div>
                     </div>
                   </div>
             </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div><!-- /.container-fluid --> --}}
     </div>
+    @include('sweetalert::alert')
+
     <!-- /.content-header -->
     @yield('sidebar')
     <!-- Main content -->

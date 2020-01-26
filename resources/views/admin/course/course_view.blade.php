@@ -27,6 +27,7 @@
                                     <th colspan="3" class="text-center" scope="col">Name Course</th>
                                     <th colspan="2" class="text-center" scope="col">Course Description</th>
                                     <th colspan="2" class="text-center" scope="col">Youtube Url</th>
+                                    <th colspan="2" class="text-center" scope="col">Course Status</th>
                                     <th  class="text-center" scope="col">Option</th>
                                 </tr>
                             </thead>
@@ -45,13 +46,22 @@
                                         @endif
                                         <td colspan="2" class="text-center">Coba lagi</td>
                                         @if ( $item->link_video != null)
-                                        <td colspan="2" class="text-center"> <a href="{{$item->link_video}}">Link Kursus</a> </td>
+                                        <td colspan="2" class="text-center"> <a href="{!! route('CourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
                                         @else
                                         <td colspan="2" class="text-center">Category</td>
                                         @endif
+                                        @if ($item->status == 0)
+                                        <td class="text-center">
+                                            <div class="alert alert-danger"> Tidak Aktif</div>
+                                        </td>
+                                        @elseif($item->status == 1)
+                                        <td class="text-center">
+                                            <div class="alert alert-success">Aktif</div>
+                                        </td>
+                                        @endif
                                         <td colspan="2" class="text-center">
-                                            <a href="#" class="btn btn-warning">Update</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{!! route('CourseUpdateAdminView',['id'=>$item->id]) !!}" class="btn btn-warning">Update</a>
+                                            <a href="{!! route('CourseDeletedAdmin',['id'=>$item->id]) !!}" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

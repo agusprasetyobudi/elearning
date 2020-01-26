@@ -3,6 +3,8 @@
 @section('sidebar')
     @include('layouts.menu_admin')
 @endsection
+@include('sweetalert::alert')
+
 @section('content')
 <div class="container-fluid">
     <!-- Info boxes -->
@@ -20,11 +22,25 @@
                         <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-body ">
-                            {{-- <div class="form-group">
-                                <button type="button" class="btn btn-warning btn-sm" id="CategoryButton">Sub Category <p class="fa fa-plus fa-sm"></p></button>
-                            </div> --}}
-
-
+                                <div class="form-group">
+                                  <label for="">Course Type</label>
+                                  <select class="form-control" name="course_selected" id="course-type">
+                                    <option value="1">Course</option>
+                                    <option value="2">Sub Course</option>
+                                  </select>
+                                </div>
+                                <div class="form-group">
+                                  <label for="">Course Name</label>
+                                  <input type="text" class="form-control" name="course_name" aria-describedby="helpId" placeholder="">
+                                </div>
+                                <div class="form-group" id="youtube-url">
+                                  <label for="">Youtube Link</label>
+                                  <input type="text" class="form-control" name="youtube_link" aria-describedby="helpId" placeholder="">
+                                </div>
+                                <div class="form-group">
+                                  <label for="">Description</label>
+                                    <textarea class="form-control" name="description" rows="5"></textarea>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                         </div>

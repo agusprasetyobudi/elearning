@@ -21,7 +21,7 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $company_name = SettingApplication::where(1);
+        $company_name = SettingApplication::where('id',1)->get();
         $name_user = Auth::user()->name;
         $data = RolePermission::with('user','role')->get();
         // var_dump($data);

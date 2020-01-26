@@ -12,14 +12,14 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h5 class="card-title">Monthly Recap Report</h5>
+                <h5 class="card-title">Welcome Message</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
                   <div class="col-xl-12">
                     <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
+                      <strong>Hai, {!! $name_user !!} Selamat Datang Di Admin Page Kursus {!! $company_name['0']->app_name !!}</strong>
                     </p>
                     {{-- <div></div> --}}
                     <!-- /.chart-responsive -->

@@ -23,6 +23,11 @@ Route::get('/', function () {
         }
     }
 });
+Route::get('/login', function(){
+    // return redirect()->route('DashboardCourse');
+    return view('welcome');
+
+});
 
 Auth::routes();
 
@@ -40,7 +45,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','role:superadministrator
     Route::post('/course/create', 'CourseController@created')->name('CourseInsertAdmin');
     Route::get('/course/update/{id}', 'CourseController@edit')->name('CourseUpdateAdminView');
     Route::post('/course/update', 'CourseController@updated')->name('CourseUpdatedAdminInsert');
-    Route::post('/course/delete', 'CourseController@deleted')->name('CourseDeletedAdmin');
+    Route::get('/course/delete/{id}', 'CourseController@deleted')->name('CourseDeletedAdmin');
     //// Course Sub Category
     Route::get('/course/sub_category/{id}', 'SubCategoryController@index')->name('SubCategoryCourse');
     Route::get('/course/sub_category/create/{id}', 'SubCategoryController@create')->name('SubCategoryCourseAdd');
@@ -83,8 +88,8 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','role:superadministrator
 });
 
 Route::group(['prefix'=>'course','middleware' => ['role:superadministrator|administrator|user','auth']], function () {
-    Route::get('/dashboard','CourseController@index')->name('DashboardCourse');
+    Route::get('/home','CourseController@courseUser')->name('DashboardCourse');
     Route::get('/list/{id}', 'CourseController@list')->name('CourseList');
-    Route::get('/detail/{id}', 'CourseController@Detail')->name('CourseDetail');
+    Route::get('/detail/{id}', 'CourseController@detailCourses')->name('CourseDetail');
     Route::get('/logout', 'Auth\LoginController@logout')->name('CourseLogout');
 });

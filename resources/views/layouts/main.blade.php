@@ -4,59 +4,66 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-    @foreach ($company_name as $item)
-        <title>{{$item->app_name}} | {{Str::upper(Request::segment(1))}}</title>
-    @endforeach
+
+  @foreach ($company_name as $item)
+  <title>{{$item->app_name}} | {{Str::upper(Request::segment(1))}}</title>
+@endforeach
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/dist/css/custom.css')}}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
+<div>
   <!-- Navbar -->
 
 
   <!-- Main Sidebar Container -->
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        {{-- <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard v2</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v2</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row --> --}}
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2800">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                  <img src="..." class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100">
-              </div>
-              <div class="carousel-item">
-                <img src="..." class="d-block w-100">
-              </div>
+        <div class="row">
+            <div class="col-12" style="height: 10%">
+                <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <img src="{{asset('admin/images/1.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/2.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/3.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/4.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/5.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/6.jpeg')}}" class="d-block w-100">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{asset('admin/images/7.jpeg')}}" class="d-block w-100">
+                      </div>
+                    </div>
+                  </div>
             </div>
-          </div>
+        </div>
       </div><!-- /.container-fluid -->
     </div>
+    @include('sweetalert::alert')
+
     <!-- /.content-header -->
-    {{-- @yield('menu') --}}
     @yield('sidebar')
     <!-- Main content -->
     @yield('content')
@@ -64,17 +71,13 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
   <!-- Main Footer -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2019
-        @if ($company_name)
-        <a href="{{URL::to('/')}}">{{$company_name}}</a>
+        @if ($company_name )
+        @foreach ($company_name  as $item)
+        <a href="{{URL::to('/')}}">{{$item->app_name}}</a>
+        @endforeach
         @else
         <a href="#">Company Name</a>
         @endif
@@ -90,6 +93,8 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('admin/dist/js/custom.js')}}"></script>
+
 <!-- Bootstrap -->
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->

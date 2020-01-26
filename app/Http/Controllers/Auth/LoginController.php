@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -31,6 +33,7 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/';
 
+    protected $maxAttemps = 3;
     /**
      * Create a new controller instance.
      *
@@ -53,7 +56,9 @@ class LoginController extends Controller
             $admin_message = 'Sign in to start your course';
             $url = route('LoginCourse');
         }else if($request->segment(1) == 'login'){
-            redirect()->route('LoginCourse');
+            $admin = false;
+            $admin_message = 'Sign in to start your course';
+            $url = route('LoginCourse');
         }
         return view('auth.login', compact('company_name','admin_message','admin','url'));
     }
@@ -117,7 +122,11 @@ class LoginController extends Controller
                         return redirect()->route('DashboardCourse');
                     }
                 }else{
-                    return redirect()->route('DashboardCourse');
+                    if(Auth::user()->hasRole('superadministrator|administrator')){
+                        return redirect()->route('DashboardAdmin');
+                    }else{
+                        return redirect()->route('DashboardCourse');
+                    }
                 }
             }
          }

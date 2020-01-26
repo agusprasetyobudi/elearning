@@ -78,7 +78,7 @@ class SubCategoryController extends Controller
                     'link_video'   =>$request->input("youtube_link.$i"),
                     'description'  =>$request->input("description.$i"),
                 ];
-                
+
             }
             // dd($datas);
             $res = CourseModels::insert($datas);
@@ -113,11 +113,18 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
-    }
+        # code...
+        // dd($id);
+        $company_name = SettingApplication::where('id',1)->get();
+        $role = Auth::user();
+        $name_user = $role->name;
+        $data = CourseModels::find($id);
+        // dd($data);
 
+        return view('admin.course.sub_category.sub_category_update', compact(['data','company_name','name_user']));
+    }
     /**
      * Update the specified resource in storage.
      *

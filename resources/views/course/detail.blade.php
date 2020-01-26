@@ -27,7 +27,10 @@
                               <div class="embed-responsive embed-responsive-5by3">
                                   <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{!! $detail->link_video !!}" frameborder="0"></iframe>
                               </div>
-                              <p class="card-text">{!! $detail->description !!}</p>
+                              <hr class="featurette-divider">
+                              <h5>Deskripsi Kursus</h5>
+                              <hr class="featurette-divider">
+                              <p class="card-text lead">{!! $detail->description !!}</p>
                           </div>
                       </div>
                       <!-- /.chart-responsive -->
