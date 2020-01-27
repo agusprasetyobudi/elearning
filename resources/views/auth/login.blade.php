@@ -99,11 +99,11 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="#">I forgot my password</a>
+        <a href="#" data-toggle="modal" data-target="#forgotPassword">I forgot my password</a>
         {{-- <a href="forgot-password.html">I forgot my password</a> --}}
       </p>
       <p class="mb-0">
-        <a href="#" class="text-center">Register a new membership</a>
+        <a href="#" class="text-center" data-toggle="modal" data-target="#registerUser">Register a new membership</a>
         {{-- <a href="register.html" class="text-center">Register a new membership</a> --}}
       </p>
     </div>
@@ -111,6 +111,45 @@
   </div>
 </div>
 <!-- /.login-box -->
+
+<!-- Modals Logins -->
+
+<div class="modal fade" id="forgotPassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Apabila Anda Lupa Password, Silahkan Hubungi Ke Bagian Training Untuk Perubahan Password Anda.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="modal fade" id="registerUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Register User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Silahakan Ke Bagian Training Untuk Pedafataran User Baru.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <!-- jQuery -->
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
