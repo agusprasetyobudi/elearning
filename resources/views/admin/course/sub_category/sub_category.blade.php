@@ -47,7 +47,7 @@
                                         @endif
                                         <td colspan="2" class="text-center">
                                             <a href="{!! route('SubCategoryCourseUpdate',['id'=>$item->id]) !!}" class="btn btn-warning">Update</a>
-                                            <a href="{!! route('SubCategoryCourseDelete',['id'=>$item->id]) !!}" class="btn btn-danger">Delete</a>
+                                            <a href="{!! route('SubCategoryCourseDelete',['id'=>$item->id]) !!}" onclick="return confirm('Apakah anda yakin ?')"  class="btn btn-danger" >Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

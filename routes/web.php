@@ -51,7 +51,7 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','role:superadministrator
     Route::get('/course/sub_category/create/{id}', 'SubCategoryController@create')->name('SubCategoryCourseAdd');
     Route::post('/course/sub_category/create/{id}', 'SubCategoryController@store')->name('SubCategoryCourseInsert');
     Route::get('/course/sub_category/update/{id}', 'SubCategoryController@edit')->name('SubCategoryCourseUpdate');
-    Route::post('/course/sub_category/update/{id}', 'SubCategoryController@update')->name('SubCategoryCourseUpdateStored');
+    Route::post('/course/sub_category/update', 'SubCategoryController@update')->name('SubCategoryCourseUpdateStored');
     Route::get('/course/sub_category/delete/{id}', 'SubCategoryController@destroy')->name('SubCategoryCourseDelete');
 
 

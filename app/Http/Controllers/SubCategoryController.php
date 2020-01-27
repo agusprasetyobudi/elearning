@@ -72,10 +72,11 @@ class SubCategoryController extends Controller
             // $sub_course->description = $request->input('description');
             // $res = $sub_course->save();
             for ($i = 0; $i < count($request->input('course_name')); $i++) {
+                $yt_id = $this->YoutubeID($request->input("youtube_link.$i"));
                 $datas[] = [
                     'parent_id'    =>$id,
                     'course_name'  =>$request->input("course_name.$i"),
-                    'link_video'   =>$request->input("youtube_link.$i"),
+                    'link_video'   =>$yt_id,
                     'description'  =>$request->input("description.$i"),
                     'status'       => 1
                 ];
@@ -103,11 +104,6 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -133,19 +129,67 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+    //   dd($request->post());
+      $selected = $request->input('course_selected');
+      $id = $request->input('laravel_version');
+      if($selected == 1){
+        $data = [
+            'course_name' => $request->input('course_name'),
+            'link_video'  => $request->input('youtube_link'),
+            'description' => $request->input('description'),
+            'status'      => $request->input('status_course'),
+        ];
+      }else if($selected == 2){
+        $data = [
+            'course_name' => $request->input('course_name'),
+            'link_video'  => null,
+            'description' => $request->input('description'),
+            'status'      => $request->input('status_course'),
+        ];
+        }
+        try {
+                // dd($data);
+                CourseModels::where('id', $id)->update($data);
+                CourseModels::where('parent_id', $id)->update(['status'=> $request->input('status_course')]);
+                Alert::toast('Data Berhasil Di Update','success');
+                return redirect()->route('SubCategoryCourse', ['id' => $id]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            //throw $th;
+            Alert::toast('Data Gagal Di Update','error');
+            return redirect()->back();
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        try {
+            // example:
+        // Alert::success('SuccessAlert','Lorem ipsum dolor sit amet.')->showConfirmButton('Confirm', '#3085d6');
+            CourseModels::destroy($id);
+            Alert::toast('Data Berhasil Di Hapus','success');
+            return redirect()->back();
+        } catch (\Illuminate\Database\QueryException $e) {
+            //throw $th;
+            Alert::toast('Data Gagal Di Update','error');
+            return redirect()->back();
+        }
+    }
+
+    ///////////// Addtional Function ///////////////
+    private function YoutubeID($url)
+    {
+        if(strlen($url) > 11)
+        {
+            if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match))
+            {
+                return $match[1];
+            }
+            else
+                return false;
+        }
+
+        return $url;
     }
 }

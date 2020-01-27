@@ -16,7 +16,7 @@
           </div>
           <!-- /.card-header -->
           <div class="card-body">
-            <form method="POST" id="form_main" action='{!! route('CourseUpdatedAdminInsert') !!}'>
+            <form method="POST" id="form_main" action='{!! route('SubCategoryCourseUpdateStored') !!}'>
                 <div class="row" id="MainCategory">
                         <div class="col-md-12">
                         <div class="card card-primary">
