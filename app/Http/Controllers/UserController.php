@@ -55,9 +55,11 @@ class UserController extends Controller
         $validated = Validator::make($request->all(),[
             'name' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            'email' => 'required',
+            'password'=> 'required|confirmed',
+            'password_confirmation' => 'required',
         ]);
-        if(!$validated){
+        if(!$validated->fails()){
             $data = [
                 'name' => $request->post('name'),
                 'username' => $request->post('username'),
@@ -197,7 +199,7 @@ class UserController extends Controller
         $res = null;
         $res_role = null;
         $user = User::find($id);
-        $role = RolePermission::destroy($id);
+        $role = RolePermission::where('user_id',$id);
         if($user != null && $role != null ){
             $res = $user->delete();
         }else if($user != null){

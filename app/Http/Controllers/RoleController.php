@@ -122,7 +122,7 @@ class RoleController extends Controller
 
         if($role != null){
             Alert::toast('Role Berhasil Di Hapus','success');
-            return redirect()->route('RoleManagementView');
+            return redirect()->back();
         }else{
             Alert::toast('Ada Kesalahan, Silahkan Hubungi Pihak Pengembang','error');
             return redirect()->back();
