@@ -77,6 +77,7 @@ class SubCategoryController extends Controller
                     'course_name'  =>$request->input("course_name.$i"),
                     'link_video'   =>$request->input("youtube_link.$i"),
                     'description'  =>$request->input("description.$i"),
+                    'status'       => 1
                 ];
 
             }
