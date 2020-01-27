@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Log in</title>
+  <title>{!! $company_sub_name !!} | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,7 +46,12 @@
         @endforeach
     @endif
   <div class="login-logo">
+      <img src="{!! asset('admin/images/CompanyLogos.png') !!}" style="width:60%; height:60%;">
+      <hr class="style13">
     <a href="{{URL::to('/')}}"><b>{{$company_name}}</b></a>
+    <hr class="style13">
+    <strong>{!! $company_sub_name !!}</strong>
+
   </div>
   <!-- /.login-logo -->
   <div class="card">

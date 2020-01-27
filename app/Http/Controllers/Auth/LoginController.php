@@ -47,6 +47,7 @@ class LoginController extends Controller
     protected function showLoginForm(Request $request)
     {
         $company_name = env('APP_NAME');
+        $company_sub_name = env('APP_SUB_NAME');
         if($request->segment(1) == 'admin'){
             $admin =true;
             $admin_message = 'Welcome Admin Page';
@@ -60,7 +61,7 @@ class LoginController extends Controller
             $admin_message = 'Sign in to start your course';
             $url = route('LoginCourse');
         }
-        return view('auth.login', compact('company_name','admin_message','admin','url'));
+        return view('auth.login', compact('company_name','company_sub_name','admin_message','admin','url'));
     }
 
     protected function login(Request $request)
