@@ -30,7 +30,7 @@ class SubCategoryController extends Controller
             $name_course = $key->course_name;
         }
         // dd($data);
-        return view('admin.course.sub_category.sub_category', compact('company_name','name_course','name_user','course','name_course'));
+        return view('admin.course.video.sub_category.sub_category', compact('company_name','name_course','name_user','course','name_course'));
 
     }
 
@@ -48,7 +48,7 @@ class SubCategoryController extends Controller
         $name_user = $role->name;
         $course_title = CourseModels::where('parent_id',0)->get();
 
-        return view('admin.course.sub_category.sub_category_create', compact(['company_name','name_user','course_title']));
+        return view('admin.course.video.sub_category.sub_category_create', compact(['company_name','name_user','course_title']));
     }
 
     /**
@@ -120,7 +120,7 @@ class SubCategoryController extends Controller
         $data = CourseModels::find($id);
         // dd($data);
 
-        return view('admin.course.sub_category.sub_category_update', compact(['data','company_name','name_user']));
+        return view('admin.course.video.sub_category.sub_category_update', compact(['data','company_name','name_user']));
     }
     /**
      * Update the specified resource in storage.

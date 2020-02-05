@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{!! URL::to('/') !!}" class="brand-link">
-    <img src="{{asset('admin/images/CompanyLogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <img src="{{asset('admin/images/LogoCompany.jpeg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     @if ($company_name)
         @foreach ($company_name as $item)
@@ -36,24 +36,36 @@
           </a>
         </li>
         <li class="nav-item has-treeview">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              Kursus
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            @foreach ($course_title as $item)
-            <li class="nav-item">
-              <a href="{{route('CourseList',['id' => $item->id])}}" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>{{$item->course_name}}</p>
-              </a>
-            </li>
-            @endforeach
-          </ul>
-        </li>
+            <a href="#" class="nav-link">
+              {{-- <i class="nav-icon fas fa-copy"></i> --}}
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Self Learning
+                {{-- <i class="fas fa-angle-left right"></i> --}}
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                {{-- <a href="{{route('')}}" class="nav-link"> --}}
+                <a href="{!! route('MateriCourseList') !!}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Materi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('VideoCourseIndex')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Video</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{route('PermissionManagmentView')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Permission</p>
+                </a>
+              </li> --}}
+            </ul>
+          </li>
         <li class="nav-item">
           <a href="{{route('CourseLogout')}}" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>

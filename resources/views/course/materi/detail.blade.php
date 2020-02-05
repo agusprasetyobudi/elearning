@@ -1,4 +1,4 @@
-@extends('layouts.adminApp')
+@extends('layouts.main')
 
 @section('sidebar')
     @include('layouts.menu_course')
@@ -25,7 +25,7 @@
                       <div class="row">
                           <div class="col-sm-12">
                               <div class="embed-responsive embed-responsive-5by3">
-                                  <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{!! $detail->link_video !!}" frameborder="0"></iframe>
+                                  <iframe class="embed-responsive-item"  src="{!! $detail->link_video !!}/preview" frameborder="0"></iframe>
                               </div>
                               <hr class="featurette-divider">
                               <h5>Deskripsi Kursus</h5>

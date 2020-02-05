@@ -12,7 +12,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                  <h4>List Kursus <small class="text-muted">{!! $course_name->course_name !!}</small></h4>
+                  <h4>List Materi Self Learning</h4>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -20,14 +20,16 @@
                   <div class="col-xl-12">
 
                     <div class="card-deck">
-                        @foreach ($list_course as $item)
+                    @foreach ($list_course as $item)
                         <div class="card">
-                            <img src="https://img.youtube.com/vi/{!! $item->link_video !!}/0.jpg" class="card-img-top" >
-                            <div class="card-body">
-                            <h5 class="card-title">{{$item->course_name}}</h5>
-                            <div style="padding-top:50px;">
-                                <a href="{{route('CourseDetail',['id'=> $item->id])}}" class="btn btn-primary">Lihat Video Kursus</a>
+                            <div class="card-header">
+                                <h5 class="card-title">{{$item->course_name}}</h5>
                             </div>
+                            <div class="card-body">
+                                <p class="card-text">{{ str_limit($item->description, 100) }}</p>
+                            </div>
+                            <div class="card-footer text-right">
+                                <a href="{{route('MateriCourseDetail',['id'=> $item->id])}}" class="btn btn-primary">Lihat Video Kursus</a>
                             </div>
                         </div>
                     @endforeach

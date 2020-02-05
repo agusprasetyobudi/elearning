@@ -12,9 +12,6 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title font-weight-normal">Detail &nbsp;<h5 class="card-title font-weight-light">{{$name_course}}</h5> </h3>
-                <div class="float-right">
-                    <a href="{{route('SubCategoryCourseAdd',['id'=> Request::segment(4)])}}" class="btn btn-primary">Add Sub-Course</a>
-                </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -39,15 +36,15 @@
                                         {{-- <td colspan="1" class="text-center">{{$item->id}}</td> --}}
                                         <td colspan="1" class="text-center">{{$id++}}</td>
                                         <td colspan="3" class="text-center">{{$item->course_name}}</td>
-                                        <td colspan="2" class="text-center">{{$item->description}}</td>
+                                        <td colspan="2" class="text-center">Coba lagi</td>
                                         @if ( $item->link_video != null)
-                                        <td colspan="2" class="text-center"> <a href="{!! route('CourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
+                                        <td colspan="2" class="text-center"> <a href="{{$item->link_video}}">Link Kursus</a> </td>
                                         @else
                                         <td colspan="2" class="text-center">Tidak Ada Link Kursus</td>
                                         @endif
                                         <td colspan="2" class="text-center">
-                                            <a href="{!! route('SubCategoryCourseUpdate',['id'=>$item->id]) !!}" class="btn btn-warning">Update</a>
-                                            <a href="{!! route('SubCategoryCourseDelete',['id'=>$item->id]) !!}" onclick="return confirm('Apakah anda yakin ?')"  class="btn btn-danger" >Delete</a>
+                                            <a href="#" class="btn btn-warning">Update</a>
+                                            <a href="#" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

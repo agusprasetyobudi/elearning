@@ -23,11 +23,11 @@ Route::get('/', function () {
         }
     }
 });
-Route::get('/login', function(){
-    // return redirect()->route('DashboardCourse');
-    return view('welcome');
+// Route::get('/login', function(){
+//     // return redirect()->route('DashboardCourse');
+//     return view('welcome');
 
-});
+// });
 
 Auth::routes();
 
@@ -40,12 +40,22 @@ Route::post('/course/login', 'Auth\LoginController@login')->name('LoginCourse');
 
 Route::group(['prefix'=>'admin','middleware' => ['auth','role:superadministrator|administrator']], function () {
     Route::get('/dashboard', 'HomeController@index')->name('DashboardAdmin');
-    Route::get('/course', 'CourseController@index')->name('CourseViewAdmin');
-    Route::get('/course/create', 'CourseController@created')->name('CourseCreateAdmin');
-    Route::post('/course/create', 'CourseController@created')->name('CourseInsertAdmin');
-    Route::get('/course/update/{id}', 'CourseController@edit')->name('CourseUpdateAdminView');
-    Route::post('/course/update', 'CourseController@updated')->name('CourseUpdatedAdminInsert');
-    Route::get('/course/delete/{id}', 'CourseController@deleted')->name('CourseDeletedAdmin');
+    Route::group(['prefix' => 'video'], function () {
+        Route::get('/course', 'CourseVideoController@index')->name('VideoCourseViewAdmin');
+        Route::get('/course/create', 'CourseVideoController@created')->name('VideoCourseCreateAdmin');
+        Route::post('/course/create', 'CourseVideoController@created')->name('VideoCourseInsertAdmin');
+        Route::get('/course/update/{id}', 'CourseVideoController@edit')->name('VideoCourseUpdateAdminView');
+        Route::post('/course/update', 'CourseVideoController@updated')->name('VideoCourseUpdatedAdminInsert');
+        Route::get('/course/delete/{id}', 'CourseVideoController@deleted')->name('VideoCourseDeletedAdmin');
+    });
+    Route::group(['prefix' => 'materi'], function () {
+        Route::get('/course', 'CourseMateriController@index')->name('MateriCourseViewAdmin');
+        Route::get('/course/create', 'CourseMateriController@create')->name('MateriCourseCreateAdmin');
+        Route::post('/course/create', 'CourseMateriController@store')->name('MateriCourseInsertAdmin');
+        Route::get('/course/update/{id}', 'CourseMateriController@edit')->name('MateriCourseUpdateAdminView');
+        Route::post('/course/update', 'CourseMateriController@updated')->name('MateriCourseUpdatedAdminInsert');
+        Route::get('/course/delete/{id}', 'CourseMateriController@destroy')->name('MateriCourseDeletedAdmin');
+    });
     //// Course Sub Category
     Route::get('/course/sub_category/{id}', 'SubCategoryController@index')->name('SubCategoryCourse');
     Route::get('/course/sub_category/create/{id}', 'SubCategoryController@create')->name('SubCategoryCourseAdd');
@@ -88,8 +98,15 @@ Route::group(['prefix'=>'admin','middleware' => ['auth','role:superadministrator
 });
 
 Route::group(['prefix'=>'course','middleware' => ['role:superadministrator|administrator|user','auth']], function () {
-    Route::get('/home','CourseController@courseUser')->name('DashboardCourse');
-    Route::get('/list/{id}', 'CourseController@list')->name('CourseList');
-    Route::get('/detail/{id}', 'CourseController@detailCourses')->name('CourseDetail');
+    Route::get('/home','CourseController@index')->name('DashboardCourse');
+    Route::group(['prefix' => 'video'], function () {
+        Route::get('/', 'CourseController@VideoIndex')->name('VideoCourseIndex');
+        Route::get('/list/{id}', 'CourseController@Videolist')->name('VideoCourseList');
+        Route::get('/detail/{id}', 'CourseController@VideodetailCourses')->name('VideoCourseDetail');
+    });
+    Route::group(['prefix' => 'materi'], function () {
+        Route::get('/list', 'CourseController@Materilist')->name('MateriCourseList');
+        Route::get('/detail/{id}', 'CourseController@MateridetailCourses')->name('MateriCourseDetail');
+    });
     Route::get('/logout', 'Auth\LoginController@logout')->name('CourseLogout');
 });

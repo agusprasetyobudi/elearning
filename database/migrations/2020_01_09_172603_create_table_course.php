@@ -20,7 +20,7 @@ class CreateTableCourse extends Migration
             $table->string('link_video')->nullable();
             $table->text('description')->nullable();
             $table->string('status')->default(0);
-            $table->string('course_single')->nullable();
+            $table->string('is_video')->default(0);
             $table->timestamps();
         });
     }

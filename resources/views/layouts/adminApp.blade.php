@@ -56,7 +56,7 @@
                         <img src="{{asset('admin/images/7.jpeg')}}" class="d-block w-100">
                       </div>
                     </div>
-                  </div>
+                </div>
             </div>
         </div>
       </div><!-- /.container-fluid --> --}}

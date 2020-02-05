@@ -13,7 +13,7 @@
               <div class="card-header">
                 <h5 class="card-title">Monthly Recap Report</h5>
                 <div class="text-right">
-                    <a href="{{ route('CourseCreateAdmin') }}" class="btn btn-default">Create Course</a>
+                    <a href="{{ route('MateriCourseCreateAdmin') }}" class="btn btn-default">Create Course</a>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -46,7 +46,7 @@
                                         @endif
                                         <td colspan="2" class="text-center">Coba lagi</td>
                                         @if ( $item->link_video != null)
-                                        <td colspan="2" class="text-center"> <a href="{!! route('CourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
+                                        <td colspan="2" class="text-center"> <a href="{!! route('MateriCourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
                                         @else
                                         <td colspan="2" class="text-center">Category</td>
                                         @endif
@@ -60,8 +60,8 @@
                                         </td>
                                         @endif
                                         <td colspan="2" class="text-center">
-                                            <a href="{!! route('CourseUpdateAdminView',['id'=>$item->id]) !!}" class="btn btn-warning">Update</a>
-                                            <a href="{!! route('CourseDeletedAdmin',['id'=>$item->id]) !!}" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-danger">Delete</a>
+                                            <a href="{!! route('MateriCourseUpdateAdminView',['id'=>$item->id]) !!}" class="btn btn-warning">Update</a>
+                                            <a href="{!! route('MateriCourseDeletedAdmin',['id'=>$item->id]) !!}" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                 @endforeach

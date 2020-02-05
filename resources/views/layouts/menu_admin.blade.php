@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{!! route('DashboardAdmin') !!}" class="brand-link">
-    <img src="{{asset('admin/images/CompanyLogos.png')}}"   alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <img src="{{asset('admin/images/LogoCompany.jpeg')}}"   alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     @if ($company_name)
         @foreach ($company_name as $item)
@@ -36,24 +36,44 @@
             </p>
           </a>
         </li>
-        <li class="nav-item has-treeview">
+        {{-- <li class="nav-item has-treeview">
           <a href="{{route('CourseViewAdmin')}}" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Kursus
+            </p>
+          </a>
+        </li> --}}
+        <li class="nav-item has-treeview">
+          <a href="#" class="nav-link">
+            {{-- <i class="nav-icon fas fa-copy"></i> --}}
+            <i class="nav-icon fas fa-user-circle"></i>
             <p>
               Kursus
               {{-- <i class="fas fa-angle-left right"></i> --}}
             </p>
           </a>
-          {{-- <ul class="nav nav-treeview">
-            @foreach ($collection as $item)
+          <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/layout/top-nav.html" class="nav-link">
+              {{-- <a href="{{route('')}}" class="nav-link"> --}}
+              <a href="{!! route('MateriCourseViewAdmin') !!}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>{{$item->name}}</p>
+                <p>Materi</p>
               </a>
             </li>
-            @endforeach
-          </ul> --}}
+            <li class="nav-item">
+              <a href="{{route('VideoCourseViewAdmin')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Video</p>
+              </a>
+            </li>
+            {{-- <li class="nav-item">
+              <a href="{{route('PermissionManagmentView')}}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Permission</p>
+              </a>
+            </li> --}}
+          </ul>
         </li>
         <li class="nav-item has-treeview">
           <a href="#" class="nav-link">
