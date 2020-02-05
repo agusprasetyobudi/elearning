@@ -78,7 +78,7 @@ public function Materilist()
     $list_course = CourseModels::where(['parent_id'=>0, 'is_video'=>2])->get();
 
     //    if(!$list_course->isEmpty()){
-        return view('course.materi.join',compact(['company_name','name_user','course_title','list_course','course_name']));
+        return view('course.materi.join',compact(['company_name','name_user','course_title','list_course']));
     //    }else{
     //     // return view('course.join',compact(['company_name','name_user','course_title','list_course']));
     //     return redirect()->back();
