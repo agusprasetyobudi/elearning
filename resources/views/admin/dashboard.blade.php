@@ -21,7 +21,9 @@
                     <p class="text-center">
                       <strong>Hai, {!! $name_user !!} Selamat Datang Di Admin Page Kursus {!! $company_name['0']->app_name !!}</strong>
                     </p>
-                    {{-- <div></div> --}}
+                    <div class="text-center">
+                        <img src="{!! asset('admin/images/CompanyLogos.png') !!}"  style="width:60%;heihgt:60%" alt="">
+                    </div>
                     <!-- /.chart-responsive -->
                   </div>
                   <!-- /.col -->
