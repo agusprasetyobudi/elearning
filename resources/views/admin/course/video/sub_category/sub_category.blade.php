@@ -39,7 +39,7 @@
                                         {{-- <td colspan="1" class="text-center">{{$item->id}}</td> --}}
                                         <td colspan="1" class="text-center">{{$id++}}</td>
                                         <td colspan="3" class="text-center">{{$item->course_name}}</td>
-                                        <td colspan="2" class="text-center">{{$item->description}}</td>
+                                        <td colspan="2" class="text-center">{{str_limit($item->description, 100)}}</td>
                                         @if ( $item->link_video != null)
                                         <td colspan="2" class="text-center"> <a href="{!! route('VideoCourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
                                         @else

@@ -46,11 +46,11 @@
         @endforeach
     @endif
   <div class="login-logo">
-      <img src="{!! asset('admin/images/CompanyLogos.png') !!}" style="width:60%; height:60%;">
+      <img src="{!! asset('admin/images/LogoCompany.jpeg') !!}" style="width:60%; height:60%;">
       <hr class="style13">
-    <a href="{{URL::to('/')}}"><b>{{$company_name}}</b></a>
+    <a href="{{URL::to('/')}}"><b style="font-size:80%;">{{$company_name}}</b></a>
     <hr class="style13">
-    <strong>{!! $company_sub_name !!}</strong>
+    <strong style="font-size:90%;">{!! $company_sub_name !!}</strong>
 
   </div>
   <!-- /.login-logo -->

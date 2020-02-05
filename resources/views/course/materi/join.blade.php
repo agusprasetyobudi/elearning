@@ -29,7 +29,7 @@
                                 <p class="card-text">{{ str_limit($item->description, 100) }}</p>
                             </div>
                             <div class="card-footer text-right">
-                                <a href="{{route('MateriCourseDetail',['id'=> $item->id])}}" class="btn btn-primary">Lihat Video Kursus</a>
+                                <a href="{{route('MateriCourseDetail',['id'=> $item->id])}}" class="btn btn-primary">Lihat Materi Kursus</a>
                             </div>
                         </div>
                     @endforeach

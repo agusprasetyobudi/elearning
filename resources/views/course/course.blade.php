@@ -10,60 +10,37 @@
         <div class="row">
             <div class="col-md-12">
               <div class="card">
-                <div class="card-header">
-                  <h5 class="card-title">Welcome Message</h5>
+                <div class="card-header" style="float:center;">
+                  <h5 class="card-title">Silahkan Pilih Self Learning</h5>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
-                    <div class="col-xl-12" style="padding-bottom: 2%">
+                    {{-- <div class="col-xl-12" style="padding-bottom: 2%">
                         <h4 class="text-center" style="padding-top: 5%">Hai <strong>{!! $name_user !!}</strong>, Selamat Datang Di Aplikasi Kursus {!! $company_name['0']->app_name !!}</h4>
-                      {{-- <div></div> --}}
+
                       <!-- /.chart-responsive -->
-                    </div>
-                    <!-- /.col -->
-                    {{-- <div class="col-md-4">
-                      <p class="text-center">
-                        <strong>Goal Completion</strong>
-                      </p>
-
-                      <div class="progress-group">
-                        Add Products to Cart
-                        <span class="float-right"><b>160</b>/200</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-primary" style="width: 80%"></div>
-                        </div>
-                      </div>
-                      <!-- /.progress-group -->
-
-                      <div class="progress-group">
-                        Complete Purchase
-                        <span class="float-right"><b>310</b>/400</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-danger" style="width: 75%"></div>
-                        </div>
-                      </div>
-
-                      <!-- /.progress-group -->
-                      <div class="progress-group">
-                        <span class="progress-text">Visit Premium Page</span>
-                        <span class="float-right"><b>480</b>/800</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-success" style="width: 60%"></div>
-                        </div>
-                      </div>
-
-                      <!-- /.progress-group -->
-                      <div class="progress-group">
-                        Send Inquiries
-                        <span class="float-right"><b>250</b>/500</span>
-                        <div class="progress progress-sm">
-                          <div class="progress-bar bg-warning" style="width: 50%"></div>
-                        </div>
-                      </div>
-                      <!-- /.progress-group -->
                     </div> --}}
-                    <!-- /.col -->
+
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body text-center"  style="font-size: 24px;">
+                              {{-- <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+                              <a href="{!! route('MateriCourseList') !!}" style="color:black;"><i class="fas fa-file-alt fa-10x"></i><p>Materi</p></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card">
+                            <div class="card-body text-center" style="font-size: 24px;">
+                              {{-- <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+                              <a href="{!! route('VideoCourseIndex') !!}" style="color:black;"><i class="fas fa-file-video fa-10x"></i><p>Video</p></a>
+                            </div>
+                          </div>
+                        </div>
+
                   </div>
                   <!-- /.row -->
                 </div>

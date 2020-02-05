@@ -26,7 +26,7 @@
                                     <th colspan="1" class="text-center" scope="col">#</th>
                                     <th colspan="3" class="text-center" scope="col">Name Course</th>
                                     <th colspan="2" class="text-center" scope="col">Course Description</th>
-                                    <th colspan="2" class="text-center" scope="col">Youtube Url</th>
+                                    <th colspan="2" class="text-center" scope="col">Google Docs Url</th>
                                     <th colspan="2" class="text-center" scope="col">Course Status</th>
                                     <th  class="text-center" scope="col">Option</th>
                                 </tr>
@@ -44,7 +44,7 @@
                                         @else
                                         <td colspan="3" class="text-center">{{$item->course_name}}</td>
                                         @endif
-                                        <td colspan="2" class="text-center">Coba lagi</td>
+                                        <td colspan="2" class="text-center">{!! str_limit($item->description, 50) !!}</td>
                                         @if ( $item->link_video != null)
                                         <td colspan="2" class="text-center"> <a href="{!! route('MateriCourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
                                         @else

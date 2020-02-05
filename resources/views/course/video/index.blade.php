@@ -12,7 +12,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
-                          {{-- <h5 class="card-title"> {!! $detail->course_name !!}</h5> --}}
+                          <h5 class="card-title"> List Video Self Learning</h5>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
