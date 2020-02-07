@@ -17,10 +17,10 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-xl-12">
+                @foreach ($list_course as $item)
+                  <div class="col-xl-4">
 
                     <div class="card-deck">
-                    @foreach ($list_course as $item)
                         <div class="card">
                             <img src="https://img.youtube.com/vi/{!! $item->link_video !!}/0.jpg" class="card-img-top" >
                             <div class="card-body">
@@ -30,11 +30,11 @@
                             </div>
                             </div>
                         </div>
-                    @endforeach
                     </div>
 
                     <!-- /.chart-responsive -->
-                  </div>
+                    </div>
+                @endforeach
                   <!-- /.col -->
                 </div>
                 <!-- /.row -->
