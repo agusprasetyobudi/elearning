@@ -55,11 +55,12 @@ class CourseMateriController extends Controller
                 $data = [
                     'parent_id'     =>0,
                     'course_name'   =>$request->input('course_name'),
-                    'link_video'    =>$request->input('youtube_link'),
+                    'link_video'    =>$this->driveLink($request->input('youtube_link')),
                     'description'   =>$request->input('description'),
                     'status'        =>1,
-                    'is_video'     =>2
+                    'is_video'      =>2
                 ];
+                // dd($data);
                 CourseModels::create($data);
                 Alert::toast('Kursus Telah DiTambahkan','success');
                 return redirect()->route('MateriCourseViewAdmin');
@@ -156,6 +157,11 @@ class CourseMateriController extends Controller
             //throw $th;
             Alert::toast('Data Gagal Di Update','error');
             return redirect()->back();
+        }
+    }
+    private function driveLink($url){
+        if(preg_match('%(:?//drive.google.com/open\?id=?)([^"&?/ ]{33})%',$url,$match)){
+            return $match[2];
         }
     }
 }

@@ -25,12 +25,13 @@
                       <div class="row">
                           <div class="col-sm-12">
                               <div class="embed-responsive embed-responsive-5by3">
-                                  <iframe class="embed-responsive-item"  src="{!! $detail->link_video !!}/preview" frameborder="0"></iframe>
+                                  <iframe class="embed-responsive-item"  src="https://drive.google.com/file/d/{!! $detail->link_video !!}/preview" frameborder="0"></iframe>
                               </div>
                               <hr class="featurette-divider">
                               <h5>Deskripsi Kursus</h5>
                               <hr class="featurette-divider">
                               <p class="card-text lead">{!! $detail->description !!}</p>
+                              <a href="https://drive.google.com/file/d/{!! $detail->link_video !!}/view" class="btn btn-primary" target="_blank">Lebih Detail</a>
                           </div>
                       </div>
                       <!-- /.chart-responsive -->

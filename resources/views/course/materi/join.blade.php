@@ -17,10 +17,9 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <div class="col-xl-12">
-
-                    <div class="card-deck">
                     @foreach ($list_course as $item)
+                  <div class="col-xl-4">
+                    <div class="card-deck">
                         <div class="card">
                             <div class="card-header">
                                 <h5 class="card-title">{{$item->course_name}}</h5>
@@ -32,11 +31,11 @@
                                 <a href="{{route('MateriCourseDetail',['id'=> $item->id])}}" class="btn btn-primary">Lihat Materi Kursus</a>
                             </div>
                         </div>
-                    @endforeach
                     </div>
 
                     <!-- /.chart-responsive -->
-                  </div>
+                </div>
+                @endforeach
                   <!-- /.col -->
                 </div>
                 <!-- /.row -->
