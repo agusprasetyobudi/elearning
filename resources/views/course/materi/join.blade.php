@@ -17,8 +17,8 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                    @foreach ($list_course as $item)
-                  <div class="col-xl-4">
+                @foreach ($list_course as $item)
+                <div class="col-xl-4">
                     <div class="card-deck">
                         <div class="card">
                             <div class="card-header">

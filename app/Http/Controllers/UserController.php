@@ -164,7 +164,7 @@ class UserController extends Controller
         $validated = Validator::make($request->all(),[
             'name' => 'required',
             'username' => 'required',
-            'password' => 'required',
+            // 'password' => 'required',
             'email' => 'required',
             'status_user'=> 'required',
             'reason' => 'required'
@@ -173,7 +173,7 @@ class UserController extends Controller
             $data = [
                 'name' => $request->post('name'),
                 'username' => $request->post('username'),
-                'password' => Hash::make($request->post('password')),
+                // 'password' => Hash::make($request->post('password')),
                 'email' => $request->post('email'),
                 'status_user' => $request->post('status_user'),
                 'reason' => $request->post('reason'),

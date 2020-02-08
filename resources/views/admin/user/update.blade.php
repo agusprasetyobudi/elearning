@@ -38,10 +38,10 @@
                             <label for="exampleInputPassword1">Email</label>
                             <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="Password" value="{{$user->email}}">
                           </div>
-                          <div class="form-group">
+                          {{-- <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="{{$user->password}}">
-                          </div>
+                          </div> --}}
                           <div class="form-group">
                             <label for="exampleInputPassword1">Status User</label>
                             <select name="status_user" id="" class="form-control">
