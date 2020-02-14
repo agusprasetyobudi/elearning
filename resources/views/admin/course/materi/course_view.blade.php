@@ -39,17 +39,17 @@
                                     <tr>
                                         {{-- <td colspan="1" class="text-center">{{$item->id}}</td> --}}
                                         <td colspan="1" class="text-center">{{$id++}}</td>
-                                        @if ($item->link_video == null && $item->course_single == null)
+                                        {{-- @if ($item->link_video == null && $item->course_single == null)
                                         <td colspan="3" class="text-center"><a href="{{ route('SubCategoryCourse', ['id'=> $item->id]) }}">{{$item->course_name}}</a></td>
-                                        @else
+                                        @else --}}
                                         <td colspan="3" class="text-center">{{$item->course_name}}</td>
-                                        @endif
+                                        {{-- @endif --}}
                                         <td colspan="2" class="text-center">{!! str_limit($item->description, 50) !!}</td>
-                                        @if ( $item->link_video != null)
+                                        {{-- @if ( $item->link_video != null) --}}
                                         <td colspan="2" class="text-center"> <a href="{!! route('MateriCourseDetail',['id'=> $item->id]) !!}" target="_blank">Link Kursus</a> </td>
-                                        @else
+                                        {{-- @else
                                         <td colspan="2" class="text-center">Category</td>
-                                        @endif
+                                        @endif --}}
                                         @if ($item->status == 0)
                                         <td class="text-center">
                                             <div class="alert alert-danger"> Tidak Aktif</div>
