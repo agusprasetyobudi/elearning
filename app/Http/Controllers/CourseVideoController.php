@@ -18,7 +18,7 @@ class CourseVideoController extends Controller
            $company_name = SettingApplication::where('id',1)->get();
            $role = Auth::user();
            $name_user = $role->name;
-               $course = CourseModels::where('parent_id',0)->get();
+               $course = CourseModels::where(['parent_id'=>0,'is_video'=>1])->get();
                return view('admin.course.video.course_view',compact(['company_name','name_user','course']));
 
        }
